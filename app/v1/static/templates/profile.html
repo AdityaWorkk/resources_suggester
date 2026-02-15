@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="profile-container">
+    <div class="profile-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <h2 style="margin: 0;">Account Settings</h2>
+            <button class="signout-nav-btn" onclick="handleSignout()">Sign Out</button>
+        </div>
+
+        <div class="info-group">
+            <label>Username:</label>
+            <span id="profileUsername">Loading...</span>
+        </div>
+        
+        <hr>
+        
+        <h3>Security</h3>
+        <div class="input-section">
+            <input type="password" id="newPassword" placeholder="New Password">
+            <button class="secondary-btn" onclick="updatePassword()">Update Password</button>
+        </div>
+
+        <hr>
+
+        <div class="danger-zone">
+            <h3>Danger Zone</h3>
+            <p>Once you delete your account, there is no going back. Please be certain.</p>
+            <button class="delete-btn" onclick="confirmSelfDelete()">Delete My Account</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    .profile-container { display: flex; justify-content: center; padding-top: 3rem; }
+    .profile-card { background: var(--card-bg); padding: 2rem; border-radius: 12px; width: 100%; max-width: 500px; }
+    .info-group { margin: 1rem 0; font-size: 1.2rem; }
+    input { width: 100%; padding: 10px; margin: 10px 0; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 6px; }
+    .secondary-btn { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
+    .delete-btn { background: #ef4444; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 10px; }
+    .danger-zone { border: 1px solid #7f1d1d; padding: 1rem; border-radius: 8px; margin-top: 2rem; }
+    
+    /* New Sign Out Button Style */
+    .signout-nav-btn {
+        background: transparent;
+        color: #f87171;
+        border: 1px solid #f87171;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+    .signout-nav-btn:hover {
+        background: #f87171;
+        color: white;
+    }
+</style>
+{% endblock %}
+

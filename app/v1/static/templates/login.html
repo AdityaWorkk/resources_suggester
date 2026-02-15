@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-container" id="loginBox">
+        <h2>Login</h2>
+        <input type="text" id="loginUser" placeholder="Username">
+        <input type="password" id="loginPass" placeholder="Password">
+        <button class="primary-btn" onclick="handleLogin()">Login</button>
+        <p>Don't have an account? <a href="#" onclick="toggleAuth()">Register here</a></p>
+    </div>
+
+    <div class="auth-container" id="registerBox" style="display: none;">
+        <h2>Register</h2>
+        <input type="text" id="regUser" placeholder="Username (min 3 chars)">
+        <input type="email" id="regEmail" placeholder="Email Address">
+        <input type="password" id="regPass" placeholder="Password (min 6 chars)">
+        <button class="primary-btn" onclick="handleRegister()">Sign Up</button>
+        <p>Already have an account? <a href="#" onclick="toggleAuth()">Login here</a></p>
+    </div>
+</div>
+
+<style>
+    .auth-wrapper { display: flex; justify-content: center; align-items: center; min-height: 70vh; }
+    .auth-container { 
+        background: var(--card-bg); 
+        padding: 2.5rem; 
+        border-radius: 12px; 
+        width: 100%; 
+        max-width: 400px; 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .auth-container input { 
+        width: 100%; padding: 12px; margin: 10px 0; 
+        background: #0f172a; border: 1px solid #334155; 
+        color: white; border-radius: 6px; 
+    }
+    .primary-btn { 
+        width: 100%; padding: 12px; background: var(--primary); 
+        border: none; color: white; border-radius: 6px; 
+        cursor: pointer; margin-top: 10px; font-weight: bold;
+    }
+</style>
+{% endblock %}

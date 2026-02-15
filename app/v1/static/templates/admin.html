@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-container">
+    <div class="admin-header">
+        <h2>System Administration</h2>
+        <button class="logout-btn" onclick="logout()">Admin Logout</button>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat-card">Total Users: <span id="userCount">0</span></div>
+    </div>
+
+    <div class="table-container">
+        <h3>User Management</h3>
+        <table id="adminUserTable">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="adminUserBody">
+                </tbody>
+        </table>
+    </div>
+</div>
+
+<style>
+    .admin-container { padding: 2rem; max-width: 1000px; margin: 0 auto; }
+    .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+    .stats-bar { margin-bottom: 1rem; }
+    .stat-card { background: var(--primary); padding: 10px 20px; border-radius: 8px; display: inline-block; }
+    .status-active { color: #10b981; font-weight: bold; }
+    .status-inactive { color: #ef4444; font-weight: bold; }
+    .terminate-btn { background: #dc2626; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
+    .terminate-btn:disabled { background: #4b5563; cursor: not-allowed; }
+</style>
+{% endblock %}

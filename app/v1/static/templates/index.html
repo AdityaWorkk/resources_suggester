@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="toggle-container">
+    <button id="btnSearch" class="toggle-btn active" onclick="showView('search')">Search Resource</button>
+    <button id="btnCollection" class="toggle-btn" onclick="showView('collection')">Get My Collection</button>
+</div>
+
+<div id="viewSearch" class="view-section">
+    <div class="chat-container">
+        <div style="padding: 1.5rem 1.5rem 0 1.5rem;">
+            <div class="category-select">
+                <label>Category:</label>
+                <select id="chatCategory">
+                    <option value="educational">Educational</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="tech">Tech</option>
+                </select>
+            </div>
+        </div> <div id="chatWindow" class="chat-window">
+            <div class="bot-msg">Hi! How can I help you find resources today?</div>
+        </div>
+        
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Ask me for a movie, article, or video...">
+            <button onclick="sendPrompt()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <div id="aiResponseTable" class="table-container" style="display:none; margin-top: 2rem;"></div>
+</div>
+
+<div id="viewCollection" class="view-section" style="display:none;">
+    <div class="table-container">
+        <table id="collectionTable">
+            <thead>
+                <tr>
+                    <th>Slno.</th>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Link</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="collectionBody">
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
